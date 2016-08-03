@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type='text/css' href="css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="template/mvc.js"></script>
+</head>
+<body ng-controller="myCtrl">
+<div class="row">
+    <button type="button" class="btn btn-success">Add</button>
+</div>
+<div  class="row" ng-repeat="val in book">
+    <div class="col-md-3 column">
+        <p class="name">{{val.name}}</p>
+        <p class="dateCreate">{{val.date| date }} </p>
+    </div>
+
+    <div class="col-md-7 column" >
+        <div class="ingridient">
+            <ol>
+                <li ng-repeat="key in val.ingridients" >{{key}}</li>
+            </ol>
+             </div>
+        <div class="discribe">{{val.describe}} </div>
+    </div>
+
+    <div class="col-md-2 column">
+        <button type="button" class="btn btn-primary" ng-click="editDiv()">Edit</button>
+        <button type="button" class="btn btn-danger" ng-click="delDiv($event)">Delete</button>
+    </div>
+</div>
+
+<!--<ul class="nav nav-tabs" id="myTab">-->
+    <!--<li class="active"><a href="#home" data-toggle="tab">Главная</a></li>-->
+    <!--<li><a href="#profile" data-toggle="tab">Профиль</a></li>-->
+    <!--<li><a href="#messages" data-toggle="tab">Сообщения</a></li>-->
+    <!--<li><a href="#settings" data-toggle="tab">Настройки</a></li>-->
+<!--</ul>-->
+
+<!--<div class="tab-content">-->
+    <!--<div class="tab-pane fade in active" id="home">111</div>-->
+    <!--<div class="tab-pane" fade id="profile">222</div>-->
+    <!--<div class="tab-pane" fade id="messages">333</div>-->
+    <!--<div class="tab-pane" fade id="settings">444</div>-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$('#myTab a:last').tab('show')-->
+    <!--})-->
+<!--</script>-->
+</body>
+</html>
