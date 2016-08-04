@@ -8,45 +8,71 @@
     <link rel="stylesheet" type='text/css' href="css/style.css"/>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
     <script src="template/mvc.js"></script>
 </head>
 <body ng-controller="myCtrl">
-<div class="row">
-    <button type="button" class="btn btn-success">Add</button>
+<div id="main">
+<div class="row text-right">
+    <button type="button" class="btn btn-success" ng-click="show=!show"><strong>Add</strong></button>
 </div>
-<div  class="row" ng-repeat="val in book">
-    <div class="col-md-3 column">
+<div  class="row receipt" ng-repeat="val in book">
+    <div class="col-md-3 column" id="firstColumn">
         <p class="name">{{val.name}}</p>
+        <img src="{{val.photo}}" class="dishFoto"/>
         <p class="dateCreate">{{val.date| date }} </p>
     </div>
 
-    <div class="col-md-7 column" >
-        <div class="ingridient">
-            <ol>
-                <li ng-repeat="key in val.ingridients" >{{key}}</li>
-            </ol>
-             </div>
-        <div class="discribe">{{val.describe}} </div>
+    <div class="col-md-8 column" id="secondColumn">
+        <div class="description">{{val.description}} </div>
     </div>
 
-    <div class="col-md-2 column">
-        <button type="button" class="btn btn-primary" ng-click="editDiv()">Edit</button>
-        <button type="button" class="btn btn-danger" ng-click="delDiv($event)">Delete</button>
+    <div class="col-md-1 column" id="thirdColumn">
+        <button type="button" class="btn" id="edit" ng-click="editDiv($index)" ng-click="show = !show"><strong>Edit</strong></button>
+        <button type="button" class="btn" id="delete" ng-click="delDiv($index)"><strong>Delete</strong></button>
     </div>
 </div>
 
+<div class="row" id="addEdit" ng-show="show">
+    <div class="row text-center">
+        <div class="col-md-4">
+    <input type="text" id='newName' placeholder="Enter name" />
+        <input type="file" class="file" value="Выбрать" accept="image/*">
+        </div>
+        <div class="col-md-8">
+    <textarea id='newDescription' placeholder="Enter description"></textarea>
+        </div>
+    </div>
+    <div class="row text-center">
+    <button type="button" class="btn btn-info" ng-click="saveDiv()" ng-click="show = !show"><strong>Save</strong></button>
+    <button type="button" class="btn btn-warning"  ng-click="show = !show"><strong>Close</strong></button>
+        </div>
+    </div>
+    <!--<div class="row" id="Edit1" ng-show="display">-->
+        <!--<input type="text" id='newName1' placeholder="Enter name" />-->
+        <!--<input type="text" id='newIngredients1' placeholder="Enter ingredients"/>-->
+        <!--<input type="text" id='newDescription1' placeholder="Enter description"/>-->
+        <!--<button type="button" class="btn btn-info" ng-click="saveEdit()" ng-click="display = !display">Save</button>-->
+        <!--<button type="button" class="btn btn-warning"  ng-click="display = !display">Close</button>-->
+    <!--</div>-->
+</div>
+</div>
+
+
 <!--<ul class="nav nav-tabs" id="myTab">-->
-    <!--<li class="active"><a href="#home" data-toggle="tab">Главная</a></li>-->
-    <!--<li><a href="#profile" data-toggle="tab">Профиль</a></li>-->
-    <!--<li><a href="#messages" data-toggle="tab">Сообщения</a></li>-->
-    <!--<li><a href="#settings" data-toggle="tab">Настройки</a></li>-->
+    <!--<li class="active"><a href="#soup" data-toggle="tab">Soups</a></li>-->
+    <!--<li><a href="#meat" data-toggle="tab">Meat$Fish</a></li>-->
+    <!--<li><a href="#salad" data-toggle="tab">Salads</a></li>-->
+    <!--<li><a href="#dessert" data-toggle="tab">Dessert</a></li>-->
+<!--<li><a href="#drinks" data-toggle="tab">Drinks</a></li>-->
 <!--</ul>-->
 
 <!--<div class="tab-content">-->
-    <!--<div class="tab-pane fade in active" id="home">111</div>-->
-    <!--<div class="tab-pane" fade id="profile">222</div>-->
-    <!--<div class="tab-pane" fade id="messages">333</div>-->
-    <!--<div class="tab-pane" fade id="settings">444</div>-->
+    <!--<div class="tab-pane fade in active" id="soup">Soup</div>-->
+    <!--<div class="tab-pane" fade id="meat">Meat$Fish</div>-->
+    <!--<div class="tab-pane" fade id="salad">Salads</div>-->
+    <!--<div class="tab-pane" fade id="dessert">Desserts</div>-->
+<!--<div class="tab-pane" fade id="drinks">Drinks</div>-->
 <!--</div>-->
 
 <!--<script>-->

@@ -1,6 +1,110 @@
-.row{
-    border:1px solid black;
+body{
+    background: url('../img/fon.jpg');
+    background-size: cover ;
 }
-.ingridient{
+button{
+    font-family: 'Cormorant Upright', serif;
+    font-size: large;
+}
+textarea{
+    /*margin: 10px;*/
+    height: 200px;
+    width: 800px;
     float: left;
+    border-radius: 20px;
+}
+textarea[placeholder] {
+    text-align:center;
+}
+input[placeholder] {
+    text-align:center;
+}
+#main{
+    padding: 20px 30px 0 30px;
+}
+#firstColumn{
+    position: relative;
+    height:245px;
+    margin-top: 1px;
+}
+#secondColumn{
+    height:245px;
+    margin-top: 1px;
+    background: url('../img/desk5.png');
+    background-size: cover ;
+}
+#thirdColumn{
+    height:245px;
+    margin-top: 1px;
+    background: url('../img/spo4.png');
+    background-size: cover ;
+
+}
+#addEdit{
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 20px;
+    opacity: 0.7;
+}
+#addEdit .row{
+    margin-top: 10px;
+}
+#newName{
+    margin: 12px 37px 0px 33px;
+    float: left;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+}
+#edit{
+    margin-top: 10px;
+    position: absolute;
+    right: 10px;
+}
+#delete{
+    margin-top: 205px;
+    position: absolute;
+    right: 50px;
+}
+.btn-info{
+    margin-right: 25px;
+}
+.btn-success{
+    margin: 10px 10px 10px 0px;
+}
+.btn-block{
+    margin: 12px 0 11px 3px;
+}
+.receipt{
+    height:250px;
+    border: 1px solid black;
+}
+.name{
+    font-family: 'Cormorant Upright', serif;
+    font-size: xx-large;
+    margin: 0 0 0 10px;
+}
+.dishFoto{
+    width: 150px;
+    height: 150px;
+}
+.dateCreate{
+    position: absolute;
+    top: 200px;
+    right: 10px;
+    font-size: smaller;
+    color: black;
+}
+.description{
+    margin: 22px 10px 10px 0px;
+    height: 230px;
+    padding: 5px 14px 16px 20px;
+    width: 100%;
+    min-height: 200px;
+    border-radius: 20px;
+    /*add scroll*/
+}
+.file{
+    margin: 100px 0px 0px 40px;
 }
