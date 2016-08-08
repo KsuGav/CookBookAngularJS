@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="routeApp" >
+<head>
+    <meta charset="Content-type:text/javascript;UTF-8">
+    <title>CookingBook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type='text/css' href="src/css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
+    
+    <link rel="stylesheet" href="src/css/animations.css">
+</head>
+<body>
+<div class="container" >
+
+<div class="row" ng-controller="NavigationCtrl as nav">
+ <ul class="nav nav-tabs" id="myTab">
+    <li ng-repeat='arr in nav.arr'><a href="{{arr.link}}" data-toggle="tab">{{arr.title}}</a></li>
+</ul>
+    </div>
+<div class="row view-container" id='main'> 
+    
+  <div ng-view class="view-frame">
+    <ng-view></ng-view>
+    </div>
+
+</div>
+</div>
+
+ <script src="src/libs/angular.min.js"></script>
+    <script src="src/libs/angular-animate.min.js"></script>
+    <script src="src/libs/angular-route.min.js"></script>
+    <script src="src/libs/angular-resource.min.js"></script>
+
+    <script src="app/controllers/navCtrl.controller.js"></script>
+    <script src="app/controllers/soup.controller.js"></script>
+    <script src="app/controllers/salad.controller.js"></script>
+    <script src="app/controllers/meat.controller.js"></script>
+    <script src="app/controllers/main.controller.js"></script>
+
+    <script src="app/appRoute.js"></script>
+    <script src="app/config.js"></script>
+    
+    
+</body>
+</html>

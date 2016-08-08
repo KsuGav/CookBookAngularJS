@@ -1,17 +1,28 @@
 body{
-    background: url('../img/fon.jpg');
+    background: url('../img/bcg.jpg');
     background-size: cover ;
+    
 }
 button{
     font-family: 'Cormorant Upright', serif;
     font-size: large;
+    transition: all ease 0.8s;
+}
+button:hover {
+  opacity: 1;
 }
 textarea{
     /*margin: 10px;*/
     height: 200px;
-    width: 800px;
+    width: 700px;
     float: left;
     border-radius: 20px;
+}
+a{
+    color:azure;
+}
+p{
+    text-align: justify;
 }
 textarea[placeholder] {
     text-align:center;
@@ -45,7 +56,9 @@ input[placeholder] {
     border: 1px solid black;
     margin-top: 10px;
     border-radius: 20px;
-    opacity: 0.7;
+    opacity: 0.8;
+    background: url('../img/forAdd.jpg');
+    background-size: cover ;
 }
 #addEdit .row{
     margin-top: 10px;
@@ -58,14 +71,35 @@ input[placeholder] {
     border-radius: 20px;
 }
 #edit{
-    margin-top: 10px;
+/*    margin-top: 10px;*/
+    margin: -1px 0px 0px -20px;
     position: absolute;
-    right: 10px;
+/*    right: 10px;*/
+    color: white;
+    background: goldenrod;
+    opacity: 0.5;
+    height: 27px;
+}
+#edit:hover{
+   opacity: 1;
 }
 #delete{
-    margin-top: 205px;
+    margin-top: -1px;
+/*    margin-top: 205px;*/
     position: absolute;
-    right: 50px;
+/*    right: 5px;*/
+    background: firebrick;
+    color: white;
+    opacity: 0.5;
+    height: 27px;
+}
+#delete:hover{
+   opacity: 1;  
+}
+.divBG{
+    background: rgba(234, 229, 214, 0.91);
+    border-radius: 15px;
+    box-shadow:  0 0 10px rgba(0,0,0,0.5);
 }
 .btn-info{
     margin-right: 25px;
@@ -85,26 +119,56 @@ input[placeholder] {
     font-size: xx-large;
     margin: 0 0 0 10px;
 }
+.info{
+    margin: 0 0 29px 0px;
+    padding: 15px 15px 0px 15px;
+}
 .dishFoto{
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 250px;
+    float: left;
+}
+.textInfo{
+    margin-left: 35%;
+    text-indent: 1.5em;
+    
+}
+.addImg{
+    width: 300px;
+    margin: 10px 0px 0px 5px;
 }
 .dateCreate{
+/*
     position: absolute;
     top: 200px;
     right: 10px;
-    font-size: smaller;
-    color: black;
+*/
+    font-size: small;
+    color: darkgray;
+    font-family: 'Cormorant Upright', serif;
 }
 .description{
+    overflow: overlay;
+    word-wrap:break-word ;
     margin: 22px 10px 10px 0px;
     height: 230px;
     padding: 5px 14px 16px 20px;
     width: 100%;
     min-height: 200px;
     border-radius: 20px;
-    /*add scroll*/
+    text-indent: 1.5em;
 }
-.file{
-    margin: 100px 0px 0px 40px;
+.description::-webkit-scrollbar { 
+    display: none; 
+}
+.firstCol{
+        height: 90%;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.nav>li>a:hover {
+    color:azure;
+    background-color: #435b88;
 }
