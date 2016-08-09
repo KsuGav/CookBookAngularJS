@@ -5,8 +5,8 @@
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-100%, 4, 0);
+    transform: translate3d(-100%, 4, 0);
   }
 
   to {
@@ -15,7 +15,20 @@
     transform: none;
   }
 }
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+  }
 
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 2, 0);
+    transform: translate3d(100%, 2, 0);
+  }
+}
+
+
+/*
 @keyframes rotateOutDownLeft {
   from {
     -webkit-transform-origin: left bottom;
@@ -31,12 +44,13 @@
     opacity: 0;
   }
 }
+*/
 .animate.ng-enter {
   animation: fadeInLeft .7s ease both;
 }
 
 .animate.ng-leave {
-   animation: rotateOutDownLeft .7s ease both;
+   animation: fadeOutRight .7s ease both;
 }
 
 /*
