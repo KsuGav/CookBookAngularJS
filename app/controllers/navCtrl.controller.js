@@ -3,9 +3,7 @@
  */
 angular.module('Controllers',[])
     .controller('NavigationCtrl', [function () {
-         var vm = this;
-        vm.test = 'test';
-        vm.arr = [
+         this.arr = [
             {
                 title: 'Main',
                 link: '#/'
