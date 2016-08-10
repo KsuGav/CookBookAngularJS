@@ -11,11 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
     
 </head>
-<body>
+<body ng-class="page.category" ng-controller="NavigationCtrl as nav">
 <div class="container" >
-
-<div class="row" ng-controller="NavigationCtrl as nav">
- <ul class="nav nav-tabs" id="myTab">
+<div class="row" >
+ <ul class="nav nav-tabs"  id="myTab">
     <li ng-repeat='arr in nav.arr'><a href="{{arr.link}}" data-toggle="tab" data-target='#{{arr.title}}'>{{arr.title}}</a></li>
 </ul>
     </div>

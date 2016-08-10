@@ -21,4 +21,10 @@ angular.module('Controllers',[])
                 link: '#/salads'
             }
         ];
-    }]);
+    }])
+.run(function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function(e, current, previous) {
+    var page = current.$$route;
+    $rootScope.page = page;
+  });
+})

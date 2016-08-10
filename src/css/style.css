@@ -1,7 +1,17 @@
 body{
+/*
     background: url('../img/bcg.jpg');
     background-size: cover ;
-    
+*/
+/*
+&.main{
+     background: url('../img/bcg.jpg');
+    background-size: cover ;
+}
+&.some{
+     background: green;
+}
+*/
 }
 button{
     font-family: 'Cormorant Upright', serif;
@@ -32,6 +42,7 @@ input[placeholder] {
 #main{
     padding: 20px 30px 0 30px;
 }
+
 #firstColumn{
     position: relative;
     height:245px;
@@ -168,4 +179,10 @@ input[placeholder] {
     color:azure;
     background-color: #435b88;
 }
-
+.main{
+     background: url('../img/bcg.jpg');
+    background-size: cover ;
+}
+.some{
+     background: linear-gradient(180deg, #45337b, #5e8cd2, rgba(109, 187, 224, 0.58), #a35bc1);
+}

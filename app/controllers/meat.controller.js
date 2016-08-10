@@ -37,8 +37,8 @@ angular.module('Controllers')
       $('#newName').val(self.book[e].name);
         $('#newDescription').val(self.book[e].description);
         self.saveEdit = function(){
-            self.addName = self.book[e].name; 
-            self.addDescription =self.book[e].description;
+            self.addName = $('#newName').val(); 
+            self.addDescription =$('#newDescription').val();
             self.addDate = new Date();
             self.hide = 'hidden';
             self.book[e]=({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
