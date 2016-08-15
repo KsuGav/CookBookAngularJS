@@ -9,7 +9,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. </p>
         </div>
     </div> 
-    <div  class="row receipt" ng-repeat="val in salad.book">
+    <div  class="row receipt" ng-repeat="val in salad.book| orderBy:'date'">
 <!--        | orderBy:'date'-->
         <div class="col-xs-3 col-md-3 column" id="firstColumn">
             <div class='row firstCol'>
@@ -18,10 +18,10 @@
                </div>
             <div class='row'>
                 <div class='col-xs-6 col-md-6'>
-                    <button type="button" class="btn btn-block" id="edit" ng-click="salad.editDiv($index)"><strong>Edit</strong></button>
+                    <button type="button" class="btn btn-block" id="edit" ng-click="salad.editDiv(val)"><strong>Edit</strong></button>
                 </div>
                 <div class='col-xs-6 col-md-6'>
-                <button type="button" class="btn btn-block" id="delete" ng-click="salad.delDiv($index)"><strong>Delete</strong></button>
+                <button type="button" class="btn btn-block" id="delete" ng-click="salad.delDiv(val)"><strong>Delete</strong></button>
                 </div>
             
             </div>
@@ -42,10 +42,10 @@
     <div class="{{salad.hide}}" id="addEdit" >
         <div class="row text-center">
             <div class="col-xs-4 col-md-4">
-                <input type="text" id='newName' placeholder="Enter name" />
+                <input type="text" id='newName' placeholder="Enter name" ng-model='salad.newName'/>
             </div>
             <div class="col-xs-8 col-md-8">
-                <textarea id='newDescription' placeholder="Enter description"></textarea>
+                <textarea id='newDescription' placeholder="Enter description" ng-model='salad.newDescription'></textarea>
             </div>
         </div>
         <div class="row text-center">

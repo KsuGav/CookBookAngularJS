@@ -11,14 +11,14 @@ var receiptes = [
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto aspernatur " +
         "error est iusto labore possimus tenetur ut voluptatem voluptatum. Culpa excepturi non placeat quasi " +
         "quia quod temporibus velit voluptates.",
-        date: '2015-07-12'
+        date: '2016-07-12'
     },
 {
     name: "Soup with beef",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto aspernatur " +
     "error est iusto labore possimus tenetur ut voluptatem voluptatum. Culpa excepturi non placeat quasi " +
     "quia quod temporibus velit voluptates.",
-    date: '2015-11-25'
+    date: '2014-11-25'
 },
 {
     name: "Green soup",
@@ -48,37 +48,56 @@ angular.module('Controllers')
     var self = this;
     self.book = JSON.parse(localStorage.getItem('receipt'));
     self.hide = 'hidden';
-    self.delDiv = function(index){
-        self.book.splice(index,1);
-    
+    self.delDiv = function(e){
+        var index = self.book.indexOf(e);
+        if (index != -1) {
+            self.book.splice(index, 1);
+        }
     };
      self.editDiv = function(e){
-        self.hide = "visible"
-        $('#newName').val(self.book[e].name);
-        $('#newDescription').val(self.book[e].description);
-        self.saveEdit = function(){ 
-            self.addName = $('#newName').val(); 
-            self.addDescription =$('#newDescription').val();
+          $(".background").css({display: "block"}).animate({opacity: "0.5"}, 1000);
+        $("#addEdit").css({display: "block"});
+        $("#addEdit").animate({top: "0px",opacity: "1"}, 1000);
+//        self.hide = "visible"
+        var index = self.book.indexOf(e);
+        if (index != -1) {
+        self.newName =self.book[index].name;
+        self.newDescription=self.book[index].description;
+        self.saveEdit = function(){
+             $(".background").animate({opacity: "0"});
+        $("#addEdit").animate({opacity: "0"});
+        setTimeout(function () {
+            $("#addEdit").css({display: "none"});
+            $(".background").css({display: "none"});
+        }, 1000);
+            self.addName = self.newName; 
+            self.addDescription =self.newDescription;
             self.addDate = new Date();
             self.hide = 'hidden';
-            self.book[e]=({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
-            $('#newName').val('');
-            $('#newDescription').val('');
+            self.book[index]=({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
+            self.newName='';
+            self.newDescription='';
         };
+        }
     };
     
     self.saveDiv =  function() {
-        self.addName = $('#newName').val();
-        self.addDescription = $('#newDescription').val();
+        self.addName = self.newName;
+        self.addDescription = self.newDescription;
         self.addDate = new Date();
         self.book.push({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
-        $('#newName').val('');
-        $('#newDescription').val('');
+        self.newName='';
+        self.newDescription='';
     };
     self.addEdit = function(){
         self.hide = "visible"
     };
     self.close = function(){
-        self.hide = 'hidden'; 
-    }
+             $(".background").animate({opacity: "0"});
+            $("#addEdit").animate({opacity: "0"});
+            setTimeout(function () {
+                $("#addEdit").css({display: "none"});
+                $(".background").css({display: "none"});
+            }, 1000);
+        }
 }]);
