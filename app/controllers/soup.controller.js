@@ -90,7 +90,9 @@ angular.module('Controllers')
         self.newDescription='';
     };
     self.addEdit = function(){
-        self.hide = "visible"
+        $(".background").css({display: "block"}).animate({opacity: "0.5"}, 1000);
+        $("#addEdit").css({display: "block"});
+        $("#addEdit").animate({top: "0px",opacity: "1"}, 1000);
     };
     self.close = function(){
              $(".background").animate({opacity: "0"});
