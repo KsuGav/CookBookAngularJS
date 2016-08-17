@@ -27,7 +27,6 @@ angular.module('Controllers')
     .controller('meatCtrl',[function(){
     var self = this;
     self.book = JSON.parse(localStorage.getItem('receipt3'));
-    self.hide = 'hidden';
     self.delDiv = function(e){
         var index = self.book.indexOf(e);
         if (index != -1) {
@@ -35,20 +34,28 @@ angular.module('Controllers')
         }
     };
     self.editDiv = function(e){
-        self.hide = "visible";
+         $(".background").css({display: "block"}).animate({opacity: "0.5"}, 1000);
+        $("#addEdit").css({display: "block"})
+            .animate({top: "0px",opacity: "1"}, 1000);
         var index = self.book.indexOf(e);
         if (index != -1) {
-        self.newName=self.book[index].name;
-        self.newDescription =self.book[index].description;
-        self.saveEdit = function(){
-            self.addName =  self.newName; 
-            self.addDescription =self.newDescription;
-            self.addDate = new Date();
-            self.hide = 'hidden';
-            self.book[index]=({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
-            self.newName='';
-            self.newDescription = '';
-        };
+            self.newName=self.book[index].name;
+            self.newDescription =self.book[index].description;
+            self.saveEdit = function(){
+                $(".background").animate({opacity: "0"});
+                $("#addEdit").animate({opacity: "0"});
+                setTimeout(function () {
+                    $("#addEdit").css({display: "none"});
+                    $(".background").css({display: "none"});
+                }, 1000);
+                self.addName =  self.newName; 
+                self.addDescription =self.newDescription;
+                self.addDate = new Date();
+                self.hide = 'hidden';
+                self.book[index]=({name:self.addName, description:self.addDescription, date:self.addDate, done:false});
+                self.newName='';
+                self.newDescription = '';
+            };
         }
     }
     self.saveDiv =  function() {
@@ -60,10 +67,19 @@ angular.module('Controllers')
         self.newDescription='';
     };
     self.addEdit = function(){
-        self.hide = "visible"
+        $(".background").css({display: "block"}).animate({opacity: "0.5"}, 1000);
+        $("#addEdit").css({display: "block"})
+            .animate({top: "0px",opacity: "1"}, 1000);
     };
     self.close = function(){
-        self.hide = 'hidden'; 
+        $(".background").animate({opacity: "0"});
+        $("#addEdit").animate({opacity: "0"});
+        setTimeout(function () {
+            $("#addEdit").css({display: "none"});
+            $(".background").css({display: "none"});
+        }, 1000);
+        self.newName='';
+        self.newDescription = '';
     }
 
 }]);

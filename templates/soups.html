@@ -1,60 +1,67 @@
 <div class='row divBG' ng-controller='soupCtrl as soup'>
     <div class='row info'>
-       <img src="src/img/soups.jpg" class=" top dishFoto img-rounded"/>
-       
-        <div class='textInfo'>
+        <div class="col-md-4 col-sm-4">
+            <img src="src/img/soups.jpg" class="img-rounded" height='250' width='350'/>
+            </div>      
+        <div class='col-md-8 col-sm-8 textInfo'>
             <h2>Soups</h2>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p class='text-justify'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.</p>
+            <p class='text-justify'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti facilis id labore qui quos reprehenderit repudiandae sapiente totam voluptatibus. Ab ad delectus deserunt fugit illo quam qui saepe totam.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
     </div>
     
-<div  class="row receipt" ng-repeat="val in soup.book| orderBy:'date'">
-    <div class="col-xs-3 col-md-3 column" id="firstColumn">
+<div  class="row receipt row-flex" ng-repeat="val in soup.book| orderBy:'date'| filter:search">
+    <div class="col-xs-3 col-md-3" >
        <div class='row firstCol'>
-            <p class="name">{{val.name}}</p>
-            <p class="dateCreate">{{val.date| date }} </p>
+            <p class="name text-justify">{{val.name}}</p>
+            <small class="dateCreate">{{val.date| date }} </small>
                </div>
             <div class='row'>
-                <div class='col-xs-6 col-md-6'>
-                <button type="button" class="btn btn-block" id="edit" ng-click="soup.editDiv(val)"><strong>Edit</strong></button>
+                <div class='col-xs-6 col-md-6 text-right'>
+                <button type="button" class="btn btn-xs btn-warning" ng-click="soup.editDiv(val)"><span class="glyphicon glyphicon-edit"></span><strong> Edit</strong></button>
                 </div>
                 <div class='col-xs-6 col-md-6'>
-                <button type="button" class="btn btn-block" id="delete" ng-click="soup.delDiv(val)"><strong>Delete</strong></button>
+                <button type="button" class="btn btn-xs btn-danger" ng-click="soup.delDiv(val)"><span class="glyphicon glyphicon-trash"></span><strong> Delete</strong></button>
                 </div>
-            
             </div>
         </div>
 
-    <div class="col-xs-8 col-md-8 column" id="secondColumn">
+    <div class="col-xs-8 col-md-8" id="secondColumn">
         <div class="description">{{val.description}}</div>
     </div>
 
-    <div class="col-xs-1 col-md-1 column" id="thirdColumn"></div>
+    <div class="col-xs-1 col-md-1" id="thirdColumn"></div>
 </div>
 
     <div class="row text-right">
-    <button type="button" class="btn btn-success" ng-click="soup.addEdit()"><strong>Add</strong></button>
-</div>
+        <div class='col-md-3 col-sm-3 col-md-offset-7'>
+            <span class="glyphicon glyphicon-search search"></span>
+            <input type="text" class='search' placeholder="Search" ng-model="search"/>
+        </div>
+        <div class='col-md-1 col-sm-1 col-md-offset-1'>
+            <button type="button" class="btn btn-success" ng-click="soup.addEdit()"><span class="glyphicon glyphicon-plus"></span><strong> Add</strong></button>
+        </div>
+    </div>
     
    <div class="background" ></div> 
     
-<div  id="addEdit">
-    <div class="row text-center">
+<div id="addEdit">
+    <form role="form">
+    <div class="row text-center form-group">
         <div class="col-xs-4 col-md-4">
-    <input type="text" id='newName' placeholder="Enter name" ng-model='soup.newName'/>
+            <input type="text" class="form-control" id='newName' placeholder="Enter name" ng-model='soup.newName'/>
         </div>
         <div class="col-xs-8 col-md-8">
-    <textarea id='newDescription' placeholder="Enter description" ng-model='soup.newDescription'></textarea>
+            <textarea class="form-control" rows="10" id='newDescription' placeholder="Enter description" ng-model='soup.newDescription'></textarea>
         </div>
     </div>
-    <div class="row text-center">
-    <button type="button" class="btn btn-info" ng-click="soup.saveDiv()" ng-click="show = !show"><strong>Save as new</strong></button>
-        <button type="button" class="btn btn-info" ng-click="soup.saveEdit()" ng-click="show = !show"><strong>Save as edit</strong></button>
-    <button type="button" class="btn btn-warning"  ng-click="soup.close()"><strong>Close</strong></button>
-        </div>
-    </div>  
+    <div class="row text-center form-group">
+        <button type="button" class="btn btn-info" ng-click="soup.saveDiv()"><strong>Save as new</strong></button>
+        <button type="button" class="btn btn-info" ng-click="soup.saveEdit()"><strong>Save as edit</strong></button>
+        <button type="button" class="btn btn-warning"  ng-click="soup.close()"><strong>Close</strong></button>
+    </div>
+    </form>
+</div>  
 
 </div>
 
